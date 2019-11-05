@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Study",
+            "request": "launch",
+            "mainClass": "Study",
+            "projectName": "baekjoon-study_87fbf1ec"
+        }
+    ]
+}
