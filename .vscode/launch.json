@@ -2,9 +2,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - Study",
+            "name": "CodeLens (Launch) - Greedy_11399",
             "request": "launch",
-            "mainClass": "Study",
+            "mainClass": "GreedyAlgorithm.Greedy_11399",
             "projectName": "baekjoon-study_87fbf1ec"
         }
     ]

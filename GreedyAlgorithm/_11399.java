@@ -1,3 +1,5 @@
+package GreedyAlgorithm;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -29,14 +31,9 @@ class min_time{
         System.out.print(result);
         
     }
-
-    
-
-    
-
 }
 
-public class Study {
+public class Greedy_11399 {
 
     public static void main(String[] args){
         
@@ -53,6 +50,7 @@ public class Study {
             e.printStackTrace();
         }
         
+        sc.close();
         
 
     
