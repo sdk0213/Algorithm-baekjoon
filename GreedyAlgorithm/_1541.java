@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 /*
 세준이는 양수와 +, -, 그리고 괄호를 가지고 길이가 최대 50인 식을 만들었다. 그리고 나서 세준이는 괄호를 모두 지웠다.
@@ -62,8 +61,7 @@ public class _1541 {
         
         int total = 0;
         boolean plus = true;
-        int piv = 0;
-        cal = "0";
+        cal = "";
         // 첫항은 ture다. piv는 0부터 찾은항i까지
         // 두번재항은 전에찾은 연산자부터
         // System.out.println(Num);
