@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _1049",
+            "request": "launch",
+            "mainClass": "GreedyAlgorithm._1049",
+            "projectName": "baekjoon-study_87fbf1ec"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _1946",
             "request": "launch",
             "mainClass": "GreedyAlgorithm._1946",
