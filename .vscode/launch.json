@@ -2,6 +2,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _Combination",
+            "request": "launch",
+            "mainClass": "GreedyAlgorithm._Combination",
+            "projectName": "baekjoon-study_87fbf1ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _Permutation",
+            "request": "launch",
+            "mainClass": "GreedyAlgorithm._Permutation",
+            "projectName": "baekjoon-study_87fbf1ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _Factorial",
+            "request": "launch",
+            "mainClass": "GreedyAlgorithm._Factorial",
+            "projectName": "baekjoon-study_87fbf1ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - factorial",
+            "request": "launch",
+            "mainClass": "GreedyAlgorithm.factorial",
+            "projectName": "baekjoon-study_87fbf1ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _2529",
+            "request": "launch",
+            "mainClass": "GreedyAlgorithm._2529",
+            "projectName": "baekjoon-study_87fbf1ec"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _1049",
             "request": "launch",
             "mainClass": "GreedyAlgorithm._1049",
