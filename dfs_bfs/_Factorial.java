@@ -1,4 +1,4 @@
-package GreedyAlgorithm;
+package dfs_bfs;
 
 import java.io.IOException;
 
