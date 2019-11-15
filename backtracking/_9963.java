@@ -18,7 +18,7 @@ public class _6603 {
             bf.append(str+"\n"); // 6개가 채워지면은 bf에다가 넣고 엔터
         }
         else{
-            for (int i = a + 1; i < n; i++) { // 1 - 2 - 3 - 4 - 5 - 6 - 7 (오름차순으로 되어있기 떄문에) a+1부터 n까지
+            for (int i = a + 1; i < n; i++) { // 1 - 2 - 3 - 4 - 5 - 6 - 7 (오름차순으로 되어있기 ??문에) a+1부터 n까지
                 count++;
                 dfs(i,str+number[i]+" ");  // 다음꺼에 넘겨주기
             }

@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _6603",
+            "request": "launch",
+            "mainClass": "backtracking._6603",
+            "projectName": "baekjoon-study_87fbf1ec"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _1260",
             "request": "launch",
             "mainClass": "dfs_bfs._1260",

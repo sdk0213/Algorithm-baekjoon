@@ -51,13 +51,25 @@ dfs 알고리즘을 사용하기
 */
 public class _2529 {
 
-    static int visited[] = new int[10];
+    static boolean visited[] = new boolean[10];
     static int xy[][] = new int[10][10];
-    public static void dfs(int n){
-    
-        for (int i = 0; i < n; i++) {
-            
-        //    if() // 연결이 안되어있다면 visited==0 이라면  
+    static String comparison[];
+
+    public static void dfs(int n){ // 9 > 5 
+        
+        visited[n] = true;//방문했고
+
+        for(int i = 0; i < comparison.length ; i++){
+            for (int j = 0; j < 10; j++) {                
+                if(comparison[i].equals("<")){
+                    if(n < i)
+                        visited[i] = true;
+                    else    
+                        dfs(i);
+                }
+                
+            }
+
         }
         
 
@@ -65,33 +77,23 @@ public class _2529 {
 
 
     public static void main(String[] args) throws IOException {
-        // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        // int n = Integer.parseInt(br.readLine());
-        // 9 
-        
-
-
-        // String comparison[] = br.readLine().split(" ");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        comparison = br.readLine().split(" ");
         
         // 탐색 시작 9 8 7 6 5 4 3 2 1 0 
         // 9로 시작해서 0으로 끝남
         // stack처럼 쌓는다가 point이다. recursive call,
-        for(int[] row: xy) {
+        // xy의 값을 row에다가 넣고 
+        for(int[] row: xy)
             Arrays.fill(row, 1);
-        }
-        System.out.println(xy.length);
-        for (int i = 0; i < xy.length; i++) {
+        for (int i = 0; i < xy.length; i++)
             xy[i][i] = 0;
+        Arrays.fill(visited, false);
+        
+        for(int i = 0; i < 10 ; i++){
+            dfs(i);
         }
-        for (int i = 0; i < xy.length; i++) {
-            for (int j = 0; j < xy[i].length; j++) {
-                System.out.print(xy[i][j]+" ");
-            }
-            System.out.println();
-        }
-        // for(int i = 0; i < n ; i++){
-        //     dfs(i);
-        // }
         
 
         
