@@ -1,49 +1,61 @@
 package backtracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.Buffer;
 import java.util.Scanner;
 
-public class _6603 {
+public class _9963 {
+    static int N;
     static Scanner sc = new Scanner(System.in);
-    static int n;
-    static int number[] = new int[13];
+    static int num=0;
     static int count;
-    static StringBuffer bf = new StringBuffer();
-    public static void dfs(int a,String str){
+    static int xy[][];
 
-        if(count == 6){
-            bf.append(str+"\n"); // 6개가 채워지면은 bf에다가 넣고 엔터
-        }
-        else{
-            for (int i = a + 1; i < n; i++) { // 1 - 2 - 3 - 4 - 5 - 6 - 7 (오름차순으로 되어있기 ??문에) a+1부터 n까지
-                count++;
-                dfs(i,str+number[i]+" ");  // 다음꺼에 넘겨주기
+    public static void dfs(int start) {
+        if (start == N-1) {
+            // for (int i = 0; i < N; i++) {
+            //     for (int j = 0; j < 2; j++) {
+            //         System.out.print("결과 : " + xy[i][j]+" ");
+            //     }
+            //     System.out.println();
+            // }
+            // System.out.println();
+            num++;
+        } else {    
+            for (int i = 0; i < N; i++) {
+                if(isPossible(start+1,i) == true ){
+                    xy[start+1][0] = start+1;
+                    xy[start+1][1] = i;
+                    dfs(start+1); // 검사가 true면
+                }                   // 들어가서 3,4행검사
             }
         }
-    
-        count--;    // 끝나면 지금까지 더해졌던 count를 --해야지 그전에서 실행됨
+    }
+
+    public static boolean isPossible(int a,int b) {
+        //xy검사
+        for (int i = 0; i < a; i++) {
+            if(xy[i][1] == b) // 같은 열에 있다면
+                return false;
+            if(Math.abs(xy[i][0] - a) == Math.abs(xy[i][1] - b)){ // 대각선이라면
+                return false;
+            }
+        }
+
+        // System.out.println("통과 : " + a+" "+b);
+        return true;
 
     }
-    public static void main(String args[]){
 
-        while((n = sc.nextInt()) != 0){
-        
-            for (int j = 0; j < n; j++) {
-                number[j] = sc.nextInt();
-            }
-
-            for (int i = 0; i < n; i++) { // 1-2-3-4-... 백트래킹
-                count=1;                  // 2-3-4-5-... 백트래킹
-                dfs(i,number[i]+" ");     // 3-4-5-6.... 백트래킹
-            }
-            bf.append("\n");
-
+    public static void main(String args[]) {
+        N = sc.nextInt();
+        xy = new int[N][2];
+        for (int i = 0; i < N; i++) {
+            count = 0;
+            xy[0][0] = 0;
+            xy[0][1] = i;
+            // System.out.println("시작 : " + xy[0][0]+" "+xy[0][1]);
+            dfs(0);
         }
-        System.out.println(bf.toString());
-
+        System.out.println(num);
     }
 
 }
