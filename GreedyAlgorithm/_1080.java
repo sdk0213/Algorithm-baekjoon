@@ -1,47 +1,14 @@
 package GreedyAlgorithm;
 
 import java.io.BufferedReader;
-import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
-import java.util.Scanner;
 
 /*
-
-
-00001 10111
-00001 10111
-00001 10111
-00000 00000
-
-처음을 바꾸고
-두번째꺼 바꾸고
-세번째꺼 바꾸고
-                 
-     0     1
-    1      
-   1
-  0
- 1
-
-
-★ 홀수번을 뒤집으면 숫자가 바뀌고 짝수번을 뒤집으면 숫자가 안바뀐다. ★
-2
-
-OO
-OO
-
-OXX
-OXX
-
-XXO
-XXO
-
+하나하나 검사하여서 01001001 추적 dfs를 생성할 예정임
+이거말고 방법이 없다고 판단이됨ㄴ
 
 */
-
-
 
 public class _1080{
     static int N,M;
@@ -71,12 +38,14 @@ public class _1080{
             
         }
 
-        for(String a[] : A){
-            for(String e : a){
-                    System.out.print(e);
+        for (int i = 0; i < N; i++) {
+            imsi = br.readLine().split("");
+            for (int j = 0; j < imsi.length; j++) {
+                B[i][j] = imsi[j];
             }
-            System.out.println();
+            
         }
+
 
         dfs(0,0);
 
