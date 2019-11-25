@@ -41,12 +41,14 @@ public class _2098 {
     public static void main(String args[]) throws NumberFormatException, IOException {
 
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        n = sc.nextInt();
+        
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 map[i][j] = Integer.parseInt(sc.next());
             }
         }
+        
 
         System.out.println(tsp(0,1));
         
