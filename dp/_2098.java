@@ -9,6 +9,7 @@ public class _2098 {
     static int n,visited;
     static int INF = Integer.MAX_VALUE - 1000000;
 
+    // visited : 내가 어디에 방문했는지 확인해보는 함수
     static int tsp(int current, int visited){
 
         if((visited == (1 << n) - 1 )){
