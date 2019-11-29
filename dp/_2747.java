@@ -25,5 +25,6 @@ public class _2747{
         int a = sc.nextInt();
         System.out.println(pibo(a));
 
+        sc.close();
     }
 }

@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _2133",
+            "request": "launch",
+            "mainClass": "dp._2133",
+            "projectName": "baekjoon-study_87fbf1ec"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _1003",
             "request": "launch",
             "mainClass": "dp._1003",

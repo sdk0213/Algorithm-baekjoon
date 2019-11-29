@@ -52,6 +52,8 @@ public class _2098 {
         
 
         System.out.println(tsp(0,1));
+
+        sc.close();
         
     }
 
