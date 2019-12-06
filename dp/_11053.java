@@ -14,9 +14,54 @@ package dp;
 하지만 이것이 정답인지 아닌지랑 상관없이 과정이 타당한것임을 확인해주는것은 누가해줄수있는가?
 
 */
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
 public class _11053{
 
-    public static void main(String args[]){
+    static int n[];
+    static int dap=0;
+    static int count;
+    static int min=0;
+    static boolean max[] = new boolean[1001];
+    static void dfs(int hgap,int flag,int depth,int dap){
+        if(depth == count){
+            System.out.println(dap);
+            min = Math.max(min, dap);
+            max[dap] = true;
+            return;
+        }
+        // if(hgap < n[depth]){
+        if(flag == 1 && hgap >= n[depth]){
+            return;
+        }
+        else{
+            dfs(hgap, 0, depth + 1,dap);
+            dfs(n[depth], 1, depth + 1,dap+1);
+        }
+
+            
+        
+    }
+
+    public static void main(String args[]) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String q[] = br.readLine().split(" ");
+        count = Integer.parseInt(q[0]);
+        n = new int[1001];
+        q = br.readLine().split(" ");
+        for(int i = 0 ; i < count ; i++)
+            n[i] = Integer.parseInt(q[i]);
+
+        dfs(0,0,0,0);
+        System.out.println(min);
+       
+
 
 
     }
