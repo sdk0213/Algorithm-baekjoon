@@ -1,11 +1,11 @@
-package GreedyAlgorithm;
+package dp;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class _2352{
+public class _11053_nlogn {
 
     static int n[] = new int[1001]; // 값 받는것
     static List<Integer> list;
