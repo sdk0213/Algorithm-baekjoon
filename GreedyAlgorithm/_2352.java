@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class _2352{
 
-    static int n[] = new int[1001]; // 값 받는것
+    static int n[] = new int[40001]; // 값 받는것
     static List<Integer> list;
 
     static int lowerbound(int n){

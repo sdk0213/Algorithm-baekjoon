@@ -31,6 +31,7 @@ public class _1182_dp {
 
         System.out.println(dap);
 
+        sc.close();
 
     }
 }
