@@ -8,22 +8,25 @@ public class _1700 {
     static int in[][];
     static int repeat=0;
 
-    static boolean compare(int c,int t,int b){
+    static boolean compare(int c,int t,int b){ 
         if(c == N) 
             return true;
-        if(in[b][c] != multi[t]) 
+        if(in[b][c] != multi[t]){
+            // System.out.println("in["+b+"]["+c+"] != multi["+t+"]");
             return compare(c+1,t,b);
+        }
         return false;
     }
     static void finder(int a,int b){ // 서로다른숫자를 in에다가 넣기
         // System.out.println("a: " + a);
         int count=0;
         for (int i = a; i < multi.length; i++) {
-            if(compare(0,i,b) == true){
+            if(compare(0,i,b) == true){ // in[b][0] != multi[i] && in[b][1] != multi[i]
                 in[b][count] = multi[i];
                 count++;
             }
             if (count == N){
+                // System.out.println("done");
                 // for (int j = 0; j < in.length; j++) {
                 //     System.out.print(in[j] + " ");
                 // }
@@ -41,7 +44,7 @@ public class _1700 {
         N = sc.nextInt();
         int K = sc.nextInt();
         multi = new int[K];
-        in = new int[(K/2)+1][N];
+        in = new int[(K/N)+1][N];
 
         for (int i = 0; i < K; i++) 
             multi[i] = sc.nextInt();
