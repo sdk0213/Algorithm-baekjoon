@@ -88,5 +88,6 @@ public class _1700 {
 
         System.out.println(result);
 
+        sc.close();
     }
 }
