@@ -1,32 +1,58 @@
 package GreedyAlgorithm;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class _1507 {
 
-    // X -> Y 로 갈때
-    // {Z1,Z2,Z3} 의 경우의수를 전부 고려하였을때 비용이 미만이라면 그 길을 채택해야됨
-    // 1) 그러므로 Z1,Z2,Z3 을 전부 나열하는 방법의 수를 고려해야함
-    // 모든경우의수는 어떤식으로 구할수 있을까?
-
-    static void check(){
-
+    static int street[][];
+    static boolean visited[];
+    static int min;
+    static int N;
+    static void highwway(int i,int j,int sum,int count){
+        visited[i] = true;
+        // System.out.println(i+","+ j + " sum = " + sum + " min = "+min);
+        // for (int k = 0; k < visited.length; k++) {
+        //     System.out.print(visited[k]+" ");
+        // }
+        // System.out.println();
+        if(visited[j] == true && min < sum && count>1){
+            System.out.println("true");
+            return;
+        }
+        
+        for (int k = 0; k < N; k++) {
+            if(min >= sum+street[i][k] && street[i][k] != 0 && visited[k]==false){ //방문하지 않았고 자기자신이 아니고 작을경우
+                highwway(k, j, sum+street[i][k],count+1);
+            }
+        }
+        
+        visited[i] = false;
+        
 
     }
 
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt();
-        int street[][] = new int[N][N];
+        N = sc.nextInt();
+        street = new int[N][N];
+        visited = new boolean[N];
+        Arrays.fill(visited,false);
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 street[i][j] = sc.nextInt();
             }   
         }
 
-
-        
+        for (int i = 0; i < N; i++) {
+            for (int j = 1+i; j < N; j++){
+                min = street[i][j];
+                System.out.println(i+","+j+" 시작 " );
+                highwway(i, j, 0,0);
+                Arrays.fill(visited,false);
+            }      
+        } 
         sc.close();
 
         
