@@ -9,21 +9,27 @@ public class _1507 {
     static boolean visited[];
     static int min;
     static int N;
-    static void highwway(int i,int j,int sum,int count){
+    static int dap;
+    static int no=0;
+    static int chso=Integer.MAX_VALUE;
+    static int error = 0;
+    static void highwway(int i,int c,int j,int sum,int count){
         visited[i] = true;
         // System.out.println(i+","+ j + " sum = " + sum + " min = "+min);
         // for (int k = 0; k < visited.length; k++) {
         //     System.out.print(visited[k]+" ");
         // }
         // System.out.println();
-        if(visited[j] == true && min < sum && count>1){
-            System.out.println("true");
+        if(visited[j] == true && min >= sum && count>1){
+            System.out.println("sum : "+sum+" street["+c+"]["+j+"] : "+ street[c][j]);
+            if(chso >= sum) chso = sum;            
+            visited[i] = false;
             return;
         }
         
         for (int k = 0; k < N; k++) {
-            if(min >= sum+street[i][k] && street[i][k] != 0 && visited[k]==false){ //방문하지 않았고 자기자신이 아니고 작을경우
-                highwway(k, j, sum+street[i][k],count+1);
+            if(min >= sum+street[i][k] && street[i][k] != 0 && visited[k]==false){ 
+                highwway(k, c, j, sum+street[i][k],count+1);
             }
         }
         
@@ -48,11 +54,31 @@ public class _1507 {
         for (int i = 0; i < N; i++) {
             for (int j = 1+i; j < N; j++){
                 min = street[i][j];
-                System.out.println(i+","+j+" 시작 " );
-                highwway(i, j, 0,0);
+                highwway(i, i, j, 0,0);
+                System.out.print((i+1)+","+(j+1));
+                if(chso == Integer.MAX_VALUE ){
+                     System.out.println(" : 건설"); 
+                    dap += street[i][j];
+                } 
+                else if(chso != min){ 
+                    System.out.println("min : "+min + " chso : "+chso + "  error");
+                    error = 1;
+                    chso = Integer.MAX_VALUE;
+                    break;
+                }
+                else{
+                    System.out.println(" : 건설"); 
+                    dap += street[i][j];
+                    chso = Integer.MAX_VALUE;
+                }
+                System.out.println(chso);
+                
                 Arrays.fill(visited,false);
             }      
         } 
+        
+        if(error == 1) System.out.println(-1);
+        else System.out.println(dap);
         sc.close();
 
         
