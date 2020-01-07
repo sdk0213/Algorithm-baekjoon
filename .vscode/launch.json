@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _dijkstra",
+            "request": "launch",
+            "mainClass": "dijkstra._dijkstra",
+            "projectName": "baekjoon-study_87fbf1ec"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _1507",
             "request": "launch",
             "mainClass": "GreedyAlgorithm._1507",
