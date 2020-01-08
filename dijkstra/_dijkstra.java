@@ -49,7 +49,7 @@ public class _dijkstra{
             }
         }
     }
-
+// O(nlogn) √÷¿˚»≠ : https://jason9319.tistory.com/307
 
     public static void main(String args[]){
         dijkstra(0);
