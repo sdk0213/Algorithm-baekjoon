@@ -22,11 +22,11 @@ public class _floydwarshall{
         }
 
 
-        for(int k = 0 ; k < number ; k++){
-            for(int i = 0 ; i < number ; i++){
-                for(int j = 0 ; j < number ; j++){
+        for(int k = 0 ; k < number ; k++){ // 거쳐가는노드
+            for(int i = 0 ; i < number ; i++){ // 출발노드
+                for(int j = 0 ; j < number ; j++){ // 도착노드
                     if(d[i][k] + d[k][j] < d[i][j])
-                        d[i][j] = d[i][k] + d[k][j];
+                        d[i][j] = d[i][k] + d[k][j]; 
                 }
             }
         }

@@ -1,86 +1,65 @@
 package GreedyAlgorithm;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class _1507 {
 
-    static int street[][];
-    static boolean visited[];
-    static int min;
+    static int d[][];
     static int N;
-    static int dap;
-    static int no=0;
-    static int chso=Integer.MAX_VALUE;
-    static int error = 0;
-    static void highwway(int i,int c,int j,int sum,int count){
-        visited[i] = true;
-        // System.out.println(i+","+ j + " sum = " + sum + " min = "+min);
-        // for (int k = 0; k < visited.length; k++) {
-        //     System.out.print(visited[k]+" ");
-        // }
-        // System.out.println();
-        if(visited[j] == true && min >= sum && count>1){
-            System.out.println("sum : "+sum+" street["+c+"]["+j+"] : "+ street[c][j]);
-            if(chso >= sum) chso = sum;            
-            visited[i] = false;
-            return;
-        }
-        
-        for (int k = 0; k < N; k++) {
-            if(min >= sum+street[i][k] && street[i][k] != 0 && visited[k]==false){ 
-                highwway(k, c, j, sum+street[i][k],count+1);
-            }
-        }
-        
-        visited[i] = false;
-        
-
-    }
+    static boolean visited[];
 
     public static void main(String args[]){
+
         Scanner sc = new Scanner(System.in);
 
         N = sc.nextInt();
-        street = new int[N][N];
-        visited = new boolean[N];
-        Arrays.fill(visited,false);
+        d = new int[N][N];
+        int a[][] = new int[N][N];
+        
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                street[i][j] = sc.nextInt();
-            }   
+                d[i][j] = sc.nextInt();
+                a[i][j] = d[i][j];
+
+            }
         }
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 1+i; j < N; j++){
-                min = street[i][j];
-                highwway(i, i, j, 0,0);
-                System.out.print((i+1)+","+(j+1));
-                if(chso == Integer.MAX_VALUE ){
-                     System.out.println(" : 건설"); 
-                    dap += street[i][j];
-                } 
-                else if(chso != min){ 
-                    System.out.println("min : "+min + " chso : "+chso + "  error");
-                    error = 1;
-                    chso = Integer.MAX_VALUE;
-                    break;
-                }
-                else{
-                    System.out.println(" : 건설"); 
-                    dap += street[i][j];
-                    chso = Integer.MAX_VALUE;
-                }
-                System.out.println(chso);
-                
-                Arrays.fill(visited,false);
-            }      
-        } 
-        
-        if(error == 1) System.out.println(-1);
-        else System.out.println(dap);
-        sc.close();
 
+        for(int k = 0 ; k < N ; k++){ // 거치는경로
+            for(int i = 0 ; i < N; i++){ // 출발경로
+                for(int j = 0 ; j < N ; j++){ // 도착경로
+
+                    if( i == k || j == k) continue; // 출발,도착이 거치는경로랑 같은 경우는 계산하면 안됨
+                     								// 그러지 않은경우 전부다 0 으로 출력되는 경우가 발생함
+
+                    if(d[i][j] > d[i][k] + d[k][j]) { // 직접가는게 더 큰경우는 제공된것이 가장 빠른길이 아닌경우가 존재하는경우임
+                    									// 그러니까 이미 모순되었다는 뜻
+                        System.out.println(-1);
+                        sc.close();
+                        return;
+                    }
+
+                    if(d[i][k] + d[k][j] == d[i][j]) // 거쳐가는것이 기존것과 같다면 a[i][j]에 0 으로 저장해서 해당길은 폐쇄하기
+                        a[i][j] = 0;
+                }
+            }
+        }
+
+        int sum = 0;
+        for(int i = 0 ; i < N ; i++){
+            for(int j = i ; j < N ; j++){
+                sum += a[i][j];
+            }
+        }
+
+
+        System.out.println(sum);
+
+
+        sc.close();
+        
+
+        
         
 
     }
