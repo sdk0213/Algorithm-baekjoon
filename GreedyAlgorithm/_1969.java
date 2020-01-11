@@ -7,6 +7,11 @@ public class _1969 {
     static int DNA[][];
     static int N, M;
 
+    // 결과적으로 나온데이터가 실제 존재하는 데이터가 아닐경우 존재함
+    // 그것을 다시 확인하기 위해서 다시 비교를 하기에는 너무 많은 데이터를 검사해야하는것같은
+    // 다른방법이 필요한듯 보임
+
+    
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
@@ -19,21 +24,14 @@ public class _1969 {
             for (int i = 0; i < M; i++) {
                 if (C[i].equals("A"))
                     DNA[i][0]++;
-
                 else if (C[i].equals("T"))
                     DNA[i][1]++;
-
                 else if (C[i].equals("G"))
                     DNA[i][2]++;
-
                 else
                     DNA[i][3]++;
-
             }
-
         }
-
-        System.out.println("시작");
 
         int cnt = 0;
 
@@ -49,9 +47,8 @@ public class _1969 {
             }
             else
                 System.out.print("C");
-            
-
         }
+
 
         sc.close();
 
