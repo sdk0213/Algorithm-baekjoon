@@ -18,6 +18,7 @@ public class _1969 {
         N = sc.nextInt();
         M = sc.nextInt();
         DNA = new int[M][4];
+        int num[] = new int[N];
         String C[];
         for (int j = 0; j < N; j++) {
             C = sc.next().split("");
@@ -30,11 +31,13 @@ public class _1969 {
                     DNA[i][2]++;
                 else
                     DNA[i][3]++;
+                num[j]+=C[i].charAt(0);
             }
         }
 
         int cnt = 0;
-
+        int dap = 0;
+    
         for (int i = 0; i < M; i++) {
             if (DNA[i][0] >= DNA[i][1] && DNA[i][0] >= DNA[i][2] && DNA[i][0] >= DNA[i][3]) {
                 System.out.print("A");
