@@ -6,27 +6,27 @@ import java.io.InputStreamReader;
 
 public class _1543 {
 
-    static String a[];
-    static String n[];
+    static char a[];
+    static char n[];
 
-    // static int compare(int k){
+    static int compare(int k){
 
-    //     int count = 0;
-    //     for (int i = k; i < a.length; i++) {
-    //         if(a[i].equals(n[count])){
-    //             count++;
-    //             continue;
-    //         }
-    //         else
-    //             break;
-    //     }
+        int count = 0;
+        for (int i = k; i < a.length; i++) {
+            if(a[i]==n[count]){
+                count++;
+                if(count==n.length){
+                    
+                    return i;
 
-    //     if(){
-    //         return 999;
-    //     }
-
-    //     return 0;
-    // }
+                }
+                continue;
+            }
+            else
+                break;
+        }
+        return -1;
+    }
 
     
     public static void main(String args[]) throws IOException{
@@ -35,25 +35,22 @@ public class _1543 {
 
         String document = br.readLine();
         String search = br.readLine();
-        
-        System.out.println("document : " + document.charAt(0) +" " + document.charAt(1) + " " + document.charAt(2) + " " + document.charAt(3));
-        System.out.println("search : " + search);
 
-        String O[] = document.split(search);
+        a = document.toCharArray();
+        n = search.toCharArray();
 
-        for (int i = 0; i < O.length; i++) {
-            System.out.println("O["+i+"] : " + O[i]);
+        int c;
+        int num=0;
+        for (int i = 0; i < a.length ; i++) {
+            
+            if((c = compare(i))!=-1){
+                i = c;
+                num++;
+            }
+                
         }
 
-        System.out.println(O.length);
-
-        // a = document.split("");
-        // n = search.split("");
-        
-        // for (int i = 0; i < document.length(); i++) {
-        //     compare(i);
-        // }
-
+        System.out.println(num);
         
 
     }
