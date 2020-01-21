@@ -28,15 +28,15 @@ public class _1202{
         for (int i = 0; i < bag_Num; i++) 
             bag[i] = sc.nextInt();
 
-        
-        Arrays.sort(jewelry, new Comparator<int[]>() {
-            public int compare(int[] o1,int[] o2){
-                if(o2[1]==o1[1]) {				// o1,o2의 1번째 배열이 동일하다면
-                    return o1[0]-o2[0];		// o1,o2의 0번째 배열을 오름차순으로
-               }
-                    return  o1[1] - o2[1];	// 그리고 1번째 배열도 오름차순으로
-               }
+
+        Arrays.sort(jewelry, (o1,o2) -> {
+            if(o1[0] == o2[0])
+                return Integer.compare(o1[1], o2[1]);
+            else
+                return Integer.compare(o1[0],o2[0]);
+
         });
+        
 
         for (int i = 0; i < jewelry.length; i++) {
             System.out.println(jewelry[i][0] + " / " + jewelry[i][1]);
