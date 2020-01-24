@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-import com.oracle.webservices.internal.api.EnvelopeStyle;
 
 /*
         // jewelry[][] 를 오름차순으로 정렬(1.무게 2.가격)
