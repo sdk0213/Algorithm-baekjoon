@@ -2,6 +2,7 @@ package GreedyAlgorithm;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Scanner;
 
 
@@ -26,7 +27,7 @@ class Jewel_Info implements Comparable<Jewel_Info>{
         this.Jewel_Info_Price = Jewel_Info_Price;
     }
     public int compareTo(Jewel_Info ObjforCompare) {
-        return ObjforCompare.Jewel_Info_Weight - this.Jewel_Info_Weight;
+        return this.Jewel_Info_Weight - ObjforCompare.Jewel_Info_Weight;
     }
 }
 public class _1202{
@@ -39,7 +40,7 @@ public class _1202{
         int SangDuk_had_Bag = inputScanner.nextInt();
         Jewel_Info jewel_Info[] = new Jewel_Info[Jeweler_had_Jewel];
         int SangDuk_had_Bag_Info[] = new int[SangDuk_had_Bag];
-        PriorityQueue<Jewel_Info> priorityQueue = new PriorityQueue<Jewel_Info>();
+        Queue<Integer> priorityQueue = new PriorityQueue<Integer>();
 
 
         for (int i = 0; i < Jeweler_had_Jewel; i++)
@@ -49,21 +50,21 @@ public class _1202{
         Arrays.sort(jewel_Info);
         Arrays.sort(SangDuk_had_Bag_Info);
         
-        // for (int Putin = 0; Putin < Jeweler_had_Jewel; Putin++) {
+        long SangDuk_Get_Money = 0;
+        int j = 0;
+        for (int Putin = 0; Putin < SangDuk_had_Bag; Putin++) {
             
-        //     while( SangDuk_had_Bag > 0 && jewel_Info.Jewel_Info_Weight < SangDuk_had_Bag_Info[j] ){
+            while( (j < Jeweler_had_Jewel)  && (jewel_Info[j].Jewel_Info_Weight <= SangDuk_had_Bag_Info[Putin]) ){
+                priorityQueue.add(jewel_Info[j].Jewel_Info_Price);
+                j++;
+            }
+            if(!priorityQueue.isEmpty()){
+                SangDuk_Get_Money += Math.abs(priorityQueue.poll());
+            }
+        }
 
-        //     }
-            
-        // }
+        System.out.println(SangDuk_Get_Money);
     
-        for (int i = 0; i < Jeweler_had_Jewel; i++) {
-            System.out.println(jewel_Info[i].Jewel_Info_Weight + " " + jewel_Info[i].Jewel_Info_Price);
-        }
-
-        for (int i = 0; i < SangDuk_had_Bag; i++) {
-                        
-        }
 
         inputScanner.close();
 
