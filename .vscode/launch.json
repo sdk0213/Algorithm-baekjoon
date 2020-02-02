@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _Factorial",
+            "request": "launch",
+            "mainClass": "dfs_bfs._Factorial",
+            "projectName": "baekjoon-study_fc513c3f"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _Permutation",
+            "request": "launch",
+            "mainClass": "dfs_bfs._Permutation",
+            "projectName": "baekjoon-study_fc513c3f"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _3109",
             "request": "launch",
             "mainClass": "GreedyAlgorithm._3109",
