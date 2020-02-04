@@ -22,7 +22,7 @@ public class _3109 {
                 Gas_RouteMap[i][j] = TempforChar.charAt(j);
         }
 
-        for (int Track = 0; Track < row; Track++) 
+        for (int Track = 0; Track < row; Track++)
             SearchingGasRoute_Backtracking(Track,0);
 
         inputscanner.close();
@@ -31,36 +31,19 @@ public class _3109 {
 
     }
 
-    static boolean SearchingGasRoute_Backtracking(int Track, int Goal) {
+    static void SearchingGasRoute_Backtracking(int Track, int Goal) {
 
         Gas_RouteMap[Track][Goal] = 'x';
 
-        // for (int i = 0; i < row; i++) {
-        //     for (int j = 0; j < column; j++) {
-        //         System.out.print(Gas_RouteMap[i][j]);
-        //     }
-        //     System.out.println();
-        // }
-        // System.out.println(Goal);
-
-        if(Goal == column - 1){
+        if(Goal == column - 1)
             Count_GasRount++;
-            return true;
-        }
         
         if( ( (Track-1) >=  0  )  && ( (Goal+1) < column ) && ( Gas_RouteMap[Track-1][Goal+1] == '.' ))
-            if(SearchingGasRoute_Backtracking(Track-1,Goal+1) == true)
-                return true;
+            SearchingGasRoute_Backtracking(Track-1,Goal+1);
         if( ( (Goal+1) < column ) && ( Gas_RouteMap[Track][Goal+1] == '.' ) )
-            if(SearchingGasRoute_Backtracking(Track,Goal+1) == true)
-                return true;
+            SearchingGasRoute_Backtracking(Track,Goal+1);
         if( ( (Track+1) < row )  && ( (Goal+1) < column ) && ( Gas_RouteMap[Track+1][Goal+1] == '.' ))
-            if(SearchingGasRoute_Backtracking(Track+1,Goal+1) == true)
-                return true;
-
-        Gas_RouteMap[Track][Goal] = '.';
-        
-        return false;
+            SearchingGasRoute_Backtracking(Track+1,Goal+1);
     }
 
 
