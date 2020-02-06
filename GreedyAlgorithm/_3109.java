@@ -31,19 +31,26 @@ public class _3109 {
 
     }
 
-    static void SearchingGasRoute_Backtracking(int Track, int Goal) {
+    static boolean SearchingGasRoute_Backtracking(int Track, int Goal) {
 
         Gas_RouteMap[Track][Goal] = 'x';
 
-        if(Goal == column - 1)
+        if(Goal == column - 1){
             Count_GasRount++;
+            return true;
+        }
         
         if( ( (Track-1) >=  0  )  && ( (Goal+1) < column ) && ( Gas_RouteMap[Track-1][Goal+1] == '.' ))
-            SearchingGasRoute_Backtracking(Track-1,Goal+1);
+            if(SearchingGasRoute_Backtracking(Track-1,Goal+1) == true)
+                return true;
         if( ( (Goal+1) < column ) && ( Gas_RouteMap[Track][Goal+1] == '.' ) )
-            SearchingGasRoute_Backtracking(Track,Goal+1);
+            if(SearchingGasRoute_Backtracking(Track,Goal+1) == true)
+                return true;
         if( ( (Track+1) < row )  && ( (Goal+1) < column ) && ( Gas_RouteMap[Track+1][Goal+1] == '.' ))
-            SearchingGasRoute_Backtracking(Track+1,Goal+1);
+            if(SearchingGasRoute_Backtracking(Track+1,Goal+1) == true)
+                return true;
+        
+        return false;
     }
 
 
