@@ -40,7 +40,7 @@ public class _9576 {
 
             for (int man = 0; man < SeoGangUniversity_Student; man++) {
                 BookRange_Of_Student[man][0] = inputScanner.nextInt();
-                BookRange_Of_Student[man][1] = inputScanner.nextInt() - BookRange_Of_Student[man][0];
+                BookRange_Of_Student[man][1] = inputScanner.nextInt();
             }
 
             Arrays.sort(BookRange_Of_Student, new Comparator<int[]>() {
@@ -53,11 +53,16 @@ public class _9576 {
 
             });
 
+            
+            for (int j = 0; j < BookRange_Of_Student.length; j++) {
+                System.out.println(BookRange_Of_Student[j][0]+" "+BookRange_Of_Student[j][1]);
+            }
+
             int beakjoon_distributing = 0;
             for (int i = 0; i < BookRange_Of_Student.length; i++) {
-                for (int j = 0; j <= BookRange_Of_Student[i][1]; j++) {
-                    if (!beakjoon_had_book[BookRange_Of_Student[i][0] + j]) {
-                        beakjoon_had_book[BookRange_Of_Student[i][0] + j] = true;
+                for (int j = BookRange_Of_Student[i][0]; j <= BookRange_Of_Student[i][1]; j++) {
+                    if (!beakjoon_had_book[j]) {
+                        beakjoon_had_book[j] = true;
                         beakjoon_distributing++;
                         break;
                     }
