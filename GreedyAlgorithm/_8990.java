@@ -39,7 +39,6 @@ public class _8990{
         int Min_Compare=0;
 
         for (int i = 0; i < Box_Info_AtoB_Weight.length; i++) {
-
             Min_Space = Truck_Size;
             for (int j = Box_Info_AtoB_Weight[i][0]; j < Box_Info_AtoB_Weight[i][1]; j++)
                 if(Min_Space > Town_leftSpace[j]) Min_Space = Town_leftSpace[j];
